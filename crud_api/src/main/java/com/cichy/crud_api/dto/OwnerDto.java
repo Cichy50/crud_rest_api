@@ -17,7 +17,7 @@ public class OwnerDto {
 
     private String phoneNumber;
 
-    public static OwnerDto from(Owner owner){
+    public static OwnerDto from(Owner owner) {
         return OwnerDto.builder()
                 .ownerId(owner.getId())
                 .firstName(owner.getFirstName())

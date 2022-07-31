@@ -23,10 +23,10 @@ public class Owner {
 
     private String phoneNumber;
 
-    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, fetch = FetchType.EAGER,mappedBy = "owner")
+    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, fetch = FetchType.EAGER, mappedBy = "owner")
     private Set<Car> cars;
 
-    public static Owner updateOwner(Owner owner, OwnerCommand ownerCommand){
+    public static Owner updateOwner(Owner owner, OwnerCommand ownerCommand) {
         owner.setFirstName(ownerCommand.getFirstName());
         owner.setLastName(ownerCommand.getLastName());
         owner.setPhoneNumber(ownerCommand.getPhoneNumber());

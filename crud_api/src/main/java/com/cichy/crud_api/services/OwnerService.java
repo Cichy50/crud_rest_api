@@ -5,7 +5,6 @@ import com.cichy.crud_api.dto.OwnerDto;
 import com.cichy.crud_api.dto.commands.OwnerCommand;
 import com.cichy.crud_api.exeptions.ResourceNotFoundException;
 import com.cichy.crud_api.repositories.OwnerRepository;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,13 +22,12 @@ public class OwnerService {
         return owners;
     }
 
-    public OwnerDto getOwnerById(Long ownerId){
+    public OwnerDto getOwnerById(Long ownerId) {
         OwnerDto owner = ownerRepository.findById(ownerId)
                 .map(o -> OwnerDto.from(o))
                 .orElseThrow(() -> new ResourceNotFoundException("Owner not found!"));
         return owner;
     }
-
 
     public OwnerDto createOwner(OwnerCommand ownerCommand) {
         Owner owner = Owner.builder()
@@ -42,15 +40,14 @@ public class OwnerService {
 
     public OwnerDto updateOwner(OwnerCommand ownerCommand, Long ownerId) {
         Owner owner = ownerRepository.findById(ownerId)
-                .map(o -> Owner.updateOwner(o,ownerCommand))
+                .map(o -> Owner.updateOwner(o, ownerCommand))
                 .orElseThrow(() -> new ResourceNotFoundException("Owner not found!"));
         return OwnerDto.from(ownerRepository.save(owner));
     }
 
     public void deleteOwner(Long ownerId) {
-        if(!ownerRepository.existsById(ownerId)){
+        if (!ownerRepository.existsById(ownerId)) {
             throw new ResourceNotFoundException("Owner not found!");
-        }
-        else ownerRepository.deleteById(ownerId);
+        } else ownerRepository.deleteById(ownerId);
     }
 }
