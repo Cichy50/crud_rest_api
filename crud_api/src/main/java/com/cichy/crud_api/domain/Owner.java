@@ -5,11 +5,12 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Set;
 
+@Entity
 @Data
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Table(name = "owner")
+@Table(name = "owners")
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
