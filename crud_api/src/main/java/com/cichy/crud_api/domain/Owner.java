@@ -1,5 +1,6 @@
 package com.cichy.crud_api.domain;
 
+import com.cichy.crud_api.dto.commands.OwnerCommand;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,4 +25,11 @@ public class Owner {
 
     @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, fetch = FetchType.EAGER,mappedBy = "owner")
     private Set<Car> cars;
+
+    public static Owner updateOwner(Owner owner, OwnerCommand ownerCommand){
+        owner.setFirstName(ownerCommand.getFirstName());
+        owner.setLastName(ownerCommand.getLastName());
+        owner.setPhoneNumber(ownerCommand.getPhoneNumber());
+        return owner;
+    }
 }
