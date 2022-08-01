@@ -17,16 +17,15 @@ public class OwnerService {
     final private OwnerRepository ownerRepository;
 
     public List<OwnerDto> getAllOwners() {
-        List<OwnerDto> owners = ownerRepository.findAll()
+        return ownerRepository.findAll()
                 .stream().map(OwnerDto::from).toList();
-        return owners;
+
     }
 
     public OwnerDto getOwnerById(Long ownerId) {
-        OwnerDto owner = ownerRepository.findById(ownerId)
+        return ownerRepository.findById(ownerId)
                 .map(OwnerDto::from)
                 .orElseThrow(() -> new ResourceNotFoundException("Owner not found!"));
-        return owner;
     }
 
     public OwnerDto createOwner(OwnerCommand ownerCommand) {
