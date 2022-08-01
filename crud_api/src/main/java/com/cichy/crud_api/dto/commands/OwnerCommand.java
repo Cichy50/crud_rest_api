@@ -4,8 +4,6 @@ import lombok.Value;
 
 @Value
 public class OwnerCommand {
-    private Long ownerId;
-
     private String firstName;
 
     private String lastName;
