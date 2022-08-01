@@ -26,6 +26,12 @@ public class Owner {
     @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, fetch = FetchType.EAGER, mappedBy = "owner")
     private Set<Car> cars;
 
+    public Owner(String firstName, String lastName, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
+
     public static Owner updateOwner(Owner owner, OwnerCommand ownerCommand) {
         owner.setFirstName(ownerCommand.getFirstName());
         owner.setLastName(ownerCommand.getLastName());
