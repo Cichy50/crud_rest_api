@@ -2,7 +2,6 @@ package com.cichy.crud_api.integration.controller;
 
 import com.cichy.crud_api.dto.OwnerDto;
 import com.cichy.crud_api.dto.commands.OwnerCommand;
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.jupiter.api.BeforeEach;
