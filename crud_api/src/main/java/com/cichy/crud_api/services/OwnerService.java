@@ -18,13 +18,13 @@ public class OwnerService {
 
     public List<OwnerDto> getAllOwners() {
         List<OwnerDto> owners = ownerRepository.findAll()
-                .stream().map(o -> OwnerDto.from(o)).toList();
+                .stream().map(OwnerDto::from).toList();
         return owners;
     }
 
     public OwnerDto getOwnerById(Long ownerId) {
         OwnerDto owner = ownerRepository.findById(ownerId)
-                .map(o -> OwnerDto.from(o))
+                .map(OwnerDto::from)
                 .orElseThrow(() -> new ResourceNotFoundException("Owner not found!"));
         return owner;
     }
